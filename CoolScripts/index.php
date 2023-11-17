@@ -1,7 +1,7 @@
 <?php
 
 // To change these values, create a file called config.php and copy/paste them there.
-$server_name = "Evil-Corp-Dev-Server";
+$server_name = "Nono Corp Monitoring";
 $server_desc = "";
 $color_bg = "#222";
 $color_name = "#fff";

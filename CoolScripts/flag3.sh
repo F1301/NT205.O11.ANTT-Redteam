@@ -9,8 +9,8 @@ cat << 'EOF' > "$TARGET_FILE"
 
 # Variables
 HOST="172.16.0.10"
-USERNAME="vmtien"
-PASSWORD="minhtien"
+USERNAME="dxlong"
+PASSWORD="longdaica"
 LOCAL_PATH="*"  # All files in the current directory
 REMOTE_PATH="/var/www/html/public/"
 

@@ -142,9 +142,9 @@ Vagrant.configure("2") do |cfg|
     echo "Changing the hostname"
     hostnamectl set-hostname WEB01
     echo "Adding user"
-    useradd -m -c 'web Admin' -p sa4xGTTS3JDBg dxlong -s /bin/bash
+    useradd -m -c 'web Admin' -p longdaica dxlong -s /bin/bash
     usermod -aG sudo dxlong
-    apt install nmap -y > /dev/null
+    # apt install nmap -y > /dev/null
     SHELL
     config.vm.provision "shell", path: "automation_scripts/webserver.sh", privileged: true
     config.vm.provision "shell", inline: "echo [+] WebServer Box Creation Over!"

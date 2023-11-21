@@ -1,6 +1,6 @@
 param
 (
-    [string][ValidateNotNullOrEmpty()]$Password = "testpass123",
+    [string][ValidateNotNullOrEmpty()]$Password = "maimaiyeuem",
     [string]$user = "testuser",
     [string]$domain = "example.local"
 )

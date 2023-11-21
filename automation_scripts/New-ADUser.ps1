@@ -1,6 +1,6 @@
 param
 (
-    [string]$Password = "testpass123",
+    [string]$Password = "maimaiyeuem",
     [string]$user = "testuser"
 )
 Write-Host -ForegroundColor Green "Adding_AD_Users $user"

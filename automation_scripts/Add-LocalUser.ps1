@@ -2,7 +2,7 @@ param
 (
     [string]$adduser = "aduseer1",
     [string]$group_add = "Administrators",
-    [string]$password = "LocalPass123"
+    [string]$password = "haiphong"
 )
 Write-Host -ForegroundColor Green "[+] Adding as $adduser local User, In Group $group_add"
 

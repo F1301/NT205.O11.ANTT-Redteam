@@ -1,6 +1,6 @@
 param
 (
-    [string]$localAdminpass = 'testpass',
+    [string]$localAdminpass = 'khoctrongmua',
     [string]$domainName = "example.local",
     [string]$domainNetbiosName = "EXAMPLE",
     [string]$safeModePass = "Admin123#",

@@ -1,6 +1,6 @@
 param
 (
-    [string]$password = "pasword123",
+    [string]$password = "28112001",
     [string]$user = "Administrator",
     [string]$hostname = "localhost_1"
 )

@@ -1,7 +1,7 @@
 param
 (
-    [string][ValidateNotNullOrEmpty()]$Password = "testpass123",
-    [string]$localAdminpass = 'testpass',
+    [string][ValidateNotNullOrEmpty()]$Password = "maimaiyeuem",
+    [string]$localAdminpass = 'khoctrongmua',
     [string]$user = "testuser",
     [string]$dcip = '127.0.0.1',
     [string]$domain = "example.local",

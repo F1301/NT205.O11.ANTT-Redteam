@@ -57,9 +57,9 @@ body {
 </head>
 <body>
 <h1 class="logo">E</h1>
-<p class="logo-base">EVIL CORP</p>
+<p class="logo-base">Nono Corp</p>
 
-<h2  style="color:white; text-align:center;">Development Portal</h2>
+<h2  style="color:white; text-align:center;">Healthcheck system</h2>
 <p style="color:white; text-align:center;">Check website is Status using IP </p>
 
 <form class=output action="" method="post">

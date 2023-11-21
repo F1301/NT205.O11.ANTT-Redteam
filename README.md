@@ -124,11 +124,11 @@ Other Users on the Lab
 
 User |  Machine | 
 --|--|
-mrrobot | RootDC
-Angela | WebServer
-Darlene | Windows Client 1
-Tyrell | Windows Client 2
-Elliot | N0t-F0uND
+vmtien | RootDC
+dxlong | WebServer
+vmduc | Windows Client 1
+tqkhang | Windows Client 2
+dev | N0t-F0uND
 
 ---
 

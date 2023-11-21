@@ -24,11 +24,11 @@ Vagrant.configure("2") do |cfg|
     config.vm.provision "shell", inline: "Write-Host -ForegroundColor Green Stopping Windows Updates ; stop-service wuauserv ; set-service wuauserv -startup disabled ; Write-Output Stooped_Updates"
     config.vm.provision "shell", inline: "Remove-WindowsFeature Windows-Defender"
     config.vm.provision "shell", inline: "Write-Host -ForegroundColor Green Installing ad-domain-services ; install-windowsfeature -name 'ad-domain-services' -includemanagementtools"
-    config.vm.provision "shell", path: "automation_scripts/Install-ADDSForest.ps1", privileged: true, args: " -localAdminpass Password123 -domainName evilcorp.local -domainNetbiosName evilcorp"
+    config.vm.provision "shell", path: "automation_scripts/Install-ADDSForest.ps1", privileged: true, args: " -localAdminpass Password123 -domainName nonocorp.local -domainNetbiosName nonocorp"
     config.vm.provision "shell", reboot: true
     config.vm.provision "shell", inline: "Start-Sleep -s 180"
-    config.vm.provision "shell", path: "automation_scripts/New-ADUser.ps1", privileged: true, args: "-user mrrobot -Password P@ssworD123"
-    config.vm.provision "shell", inline: "Write-Host -ForegroundColor Green Adding to Domain Admins ;Add-ADGroupMember -Identity 'Domain Admins' -Members mrrobot"
+    config.vm.provision "shell", path: "automation_scripts/New-ADUser.ps1", privileged: true, args: "-user vmtien -Password P@ssworD123"
+    config.vm.provision "shell", inline: "Write-Host -ForegroundColor Green Adding to Domain Admins ;Add-ADGroupMember -Identity 'Domain Admins' -Members vmtien"
     
     config.vm.provision "shell", path: "automation_scripts/New-ADUser.ps1", privileged: true, args: "-user eliot -Password P@ssworD321"
     config.vm.provision "shell", inline: "Write-Host -ForegroundColor Green Adding to Domain Admins ;Add-ADGroupMember -Identity 'Domain Admins' -Members eliot"
@@ -56,9 +56,9 @@ Vagrant.configure("2") do |cfg|
     config.vm.provision "shell", reboot: true
     config.vm.provision "shell", inline: "foreach ($c in Get-NetAdapter) { write-host 'Setting DNS for' $c.interfaceName ; Set-DnsClientServerAddress -InterfaceIndex $c.interfaceindex -ServerAddresses ('10.10.10.3', '10.10.10.3') }" 
     config.vm.provision "shell", inline: "Write-Host -ForegroundColor Green ; Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False" , privileged: true
-    config.vm.provision "shell", path: "automation_scripts/join-domain.ps1", privileged: true, args: "-Password Password123 -user Administrator -domain evilcorp.local" 
+    config.vm.provision "shell", path: "automation_scripts/join-domain.ps1", privileged: true, args: "-Password Password123 -user Administrator -domain nonocorp.local" 
     config.vm.provision "shell", reboot: true
-    config.vm.provision "shell", path: "automation_scripts/Add-Aduser-to-localgroup.ps1", privileged: true, args: "-adduser eliot -group_add Administrators -domain 'evilcorp.local'"
+    config.vm.provision "shell", path: "automation_scripts/Add-Aduser-to-localgroup.ps1", privileged: true, args: "-adduser eliot -group_add Administrators -domain 'nonocorp.local'"
     config.vm.provision "shell", path: "automation_scripts/Add-LocalUser.ps1", privileged: true, args: "-adduser tryell -password WinClient123 -group_add Administrators"
     config.vm.provision "shell", path: "automation_scripts/choco-get-apps.ps1", privileged: true, args: "vlc python3" # choco Script with Addidional Argutmet
     config.vm.provision "shell", inline: "Write-Host -ForegroundColor Green [+] Workstation-02 Box Creation Over!"
@@ -100,11 +100,11 @@ Vagrant.configure("2") do |cfg|
       config.vm.provision "shell", reboot: true
       config.vm.provision "shell", inline: "foreach ($c in Get-NetAdapter) { write-host 'Setting DNS for' $c.interfaceName ; Set-DnsClientServerAddress -InterfaceIndex $c.interfaceindex -ServerAddresses ('10.10.10.3', '10.10.10.3') }"
       config.vm.provision "shell", inline: "Write-Host -ForegroundColor Green Turn of Firewall ; Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False" , privileged: true
-      config.vm.provision "shell", path: "automation_scripts/join-domain.ps1", privileged: true, args: "-Password Password123 -user Administrator -domain evilcorp.local" 
+      config.vm.provision "shell", path: "automation_scripts/join-domain.ps1", privileged: true, args: "-Password Password123 -user Administrator -domain nonocorp.local" 
       config.vm.provision "shell", reboot: true
-      config.vm.provision "shell", path: "automation_scripts/Add-LocalUser.ps1", privileged: true, args: "-adduser darlene -password WinClient321 -group_add Administrators"
+      config.vm.provision "shell", path: "automation_scripts/Add-LocalUser.ps1", privileged: true, args: "-adduser vmduc -password WinClient321 -group_add Administrators"
       config.vm.provision "shell", reboot: true
-      config.vm.provision "shell", path: "automation_scripts/Add-Aduser-to-localgroup.ps1", privileged: true, args: "-adduser eliot -group_add Administrators -domain 'evilcorp.local'"
+      config.vm.provision "shell", path: "automation_scripts/Add-Aduser-to-localgroup.ps1", privileged: true, args: "-adduser eliot -group_add Administrators -domain 'nonocorp.local'"
       config.vm.provision "shell", path: "automation_scripts/choco-get-apps.ps1", privileged: true, args: "netcat"
       config.vm.provision "shell", inline: "Write-Host -ForegroundColor Green [+] Workstation-01 Box Creation Over!"
 
@@ -131,8 +131,8 @@ Vagrant.configure("2") do |cfg|
     echo "Changing the hostname"
     hostnamectl set-hostname WEB01
     echo "Adding user"
-    useradd -m -c 'web Admin' -p sa4xGTTS3JDBg angela -s /bin/bash
-    usermod -aG sudo angela
+    useradd -m -c 'web Admin' -p sa4xGTTS3JDBg dxlong -s /bin/bash
+    usermod -aG sudo dxlong
     apt install nmap -y > /dev/null
     SHELL
     config.vm.provision "shell", path: "automation_scripts/webserver.sh", privileged: true

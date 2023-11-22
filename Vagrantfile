@@ -28,19 +28,19 @@ Vagrant.configure("2") do |cfg|
     config.vm.provision "shell", reboot: true
     config.vm.provision "shell", inline: "Start-Sleep -s 180"
 
-    config.vm.provision "shell", path: "automation_scripts/New-ADUser.ps1", privileged: true, args: "-user vmtien -Password minhtien"
+    config.vm.provision "shell", path: "automation_scripts/New-ADUser.ps1", privileged: true, args: "-user vmtien -Password Dautien1"
     config.vm.provision "shell", inline: "Write-Host -ForegroundColor Green Adding to Domain Admins ;Add-ADGroupMember -Identity 'Domain Admins' -Members vmtien"
     
-    config.vm.provision "shell", path: "automation_scripts/New-ADUser.ps1", privileged: true, args: "-user nvphu -Password hoangphuc"
+    config.vm.provision "shell", path: "automation_scripts/New-ADUser.ps1", privileged: true, args: "-user nvphu -Password Long123456"
     config.vm.provision "shell", inline: "Write-Host -ForegroundColor Green Adding to Domain Admins ;Add-ADGroupMember -Identity 'Domain Admins' -Members nvphu"
 
-    config.vm.provision "shell", path: "automation_scripts/New-ADUser.ps1", privileged: true, args: "-user tvhiep -Password bigbang"
+    config.vm.provision "shell", path: "automation_scripts/New-ADUser.ps1", privileged: true, args: "-user tvhiep -Password Qq123456"
     config.vm.provision "shell", inline: "Write-Host -ForegroundColor Green Adding to Domain Admins ;Add-ADGroupMember -Identity 'Domain Admins' -Members tvhiep"
 
-    config.vm.provision "shell", path: "automation_scripts/New-ADUser.ps1", privileged: true, args: "-user ddltruong -Password anhtruong"
+    config.vm.provision "shell", path: "automation_scripts/New-ADUser.ps1", privileged: true, args: "-user ddltruong -Password Vungtaumx123"
     config.vm.provision "shell", inline: "Write-Host -ForegroundColor Green Adding to Domain Admins ;Add-ADGroupMember -Identity 'Domain Admins' -Members ddltruong"
 
-    config.vm.provision "shell", path: "automation_scripts/New-ADUser.ps1", privileged: true, args: "-user pvngo -Password q121212"
+    config.vm.provision "shell", path: "automation_scripts/New-ADUser.ps1", privileged: true, args: "-user pvngo -Password Vungtaumx123bh"
     config.vm.provision "shell", inline: "Write-Host -ForegroundColor Green Adding to Domain Admins ;Add-ADGroupMember -Identity 'Domain Admins' -Members pvngo"
 
     config.vm.provision "shell", inline: "Write-Host -ForegroundColor Green [+] RootDC Box Creation Over!"

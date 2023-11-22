@@ -38,7 +38,7 @@ Vagrant.configure("2") do |cfg|
       Set-ADDefaultDomainPasswordPolicy -Identity $policy.DistinguishedName -PasswordComplexityEnabled $false
     SHELL
 
-    config.vm.provision "shell", path: "automation_scripts/New-ADUser.ps1", privileged: true, args: "-user vmtien -Password Dautien1"
+    config.vm.provision "shell", path: "automation_scripts/New-ADUser.ps1", privileged: true, args: "-user vmtien -Password Abc123456"
     config.vm.provision "shell", inline: "Write-Host -ForegroundColor Green Adding to Domain Admins ;Add-ADGroupMember -Identity 'Domain Admins' -Members vmtien"
     
     config.vm.provision "shell", path: "automation_scripts/New-ADUser.ps1", privileged: true, args: "-user nvphu -Password Long123456"

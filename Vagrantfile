@@ -30,7 +30,7 @@ Vagrant.configure("2") do |cfg|
 
     config.vm.provision "shell", path: "automation_scripts/disable-password-complexity.ps1", privileged: true
 
-    config.vm.provision "shell", path: "automation_scripts/New-ADUser.ps1", privileged: true, args: "-user vmtien -Password Dautien1"
+    config.vm.provision "shell", path: "automation_scripts/New-ADUser.ps1", privileged: true, args: "-user vmtien -Password Aa123456789"
     config.vm.provision "shell", inline: "Write-Host -ForegroundColor Green Adding to Domain Admins ;Add-ADGroupMember -Identity 'Domain Admins' -Members vmtien"
     
     config.vm.provision "shell", path: "automation_scripts/New-ADUser.ps1", privileged: true, args: "-user nvphu -Password Long123456"

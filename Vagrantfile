@@ -27,8 +27,8 @@ Vagrant.configure("2") do |cfg|
       config.vm.provision "shell", path: "automation_scripts/Install-ADDSForest.ps1", privileged: true, args: " -localAdminpass Password123 -domainName nonocorp.local -domainNetbiosName nonocorp"
       config.vm.provision "shell", reboot: true
       config.vm.provision "shell", inline: "Start-Sleep -s 180"
-      config.vm.provision "shell", path: "automation_scripts/New-ADUser.ps1", privileged: true, args: "-user vmtien -Password P@ssworD123"
-      config.vm.provision "shell", inline: "Write-Host -ForegroundColor Green Adding to Domain Admins ;Add-ADGroupMember -Identity 'Domain Admins' -Members vmtien"
+      config.vm.provision "shell", path: "automation_scripts/New-ADUser.ps1", privileged: true, args: "-user mrrobot -Password P@ssworD123"
+      config.vm.provision "shell", inline: "Write-Host -ForegroundColor Green Adding to Domain Admins ;Add-ADGroupMember -Identity 'Domain Admins' -Members mrrobot"
       
       config.vm.provision "shell", path: "automation_scripts/New-ADUser.ps1", privileged: true, args: "-user eliot -Password P@ssworD321"
       config.vm.provision "shell", inline: "Write-Host -ForegroundColor Green Adding to Domain Admins ;Add-ADGroupMember -Identity 'Domain Admins' -Members eliot"
@@ -39,7 +39,7 @@ Vagrant.configure("2") do |cfg|
     cfg.vm.define "workstation2" do |config| 
       config.vm.box = "rgl/windows-10-1809-enterprise-amd64"
       config.vm.network "private_network", ip:  "10.10.10.102" 
-      config.vm.boot_timeout = 18000
+      config.vm.boot_timeout = 1800
       config.winrm.transport = :plaintext
       config.winrm.basic_auth_only = true
       config.winrm.retry_limit = 30
@@ -102,7 +102,7 @@ Vagrant.configure("2") do |cfg|
         config.vm.provision "shell", inline: "Write-Host -ForegroundColor Green Turn of Firewall ; Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False" , privileged: true
         config.vm.provision "shell", path: "automation_scripts/join-domain.ps1", privileged: true, args: "-Password Password123 -user Administrator -domain nonocorp.local" 
         config.vm.provision "shell", reboot: true
-        config.vm.provision "shell", path: "automation_scripts/Add-LocalUser.ps1", privileged: true, args: "-adduser vmduc -password WinClient321 -group_add Administrators"
+        config.vm.provision "shell", path: "automation_scripts/Add-LocalUser.ps1", privileged: true, args: "-adduser darlene -password WinClient321 -group_add Administrators"
         config.vm.provision "shell", reboot: true
         config.vm.provision "shell", path: "automation_scripts/Add-Aduser-to-localgroup.ps1", privileged: true, args: "-adduser eliot -group_add Administrators -domain 'nonocorp.local'"
         config.vm.provision "shell", path: "automation_scripts/choco-get-apps.ps1", privileged: true, args: "netcat"
@@ -131,8 +131,8 @@ Vagrant.configure("2") do |cfg|
       echo "Changing the hostname"
       hostnamectl set-hostname WEB01
       echo "Adding user"
-      useradd -m -c 'web Admin' -p sa4xGTTS3JDBg dxlong -s /bin/bash
-      usermod -aG sudo dxlong
+      useradd -m -c 'web Admin' -p sa4xGTTS3JDBg angela -s /bin/bash
+      usermod -aG sudo angela
       apt install nmap -y > /dev/null
       SHELL
       config.vm.provision "shell", path: "automation_scripts/webserver.sh", privileged: true

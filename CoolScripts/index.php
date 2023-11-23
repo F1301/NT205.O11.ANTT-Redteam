@@ -360,7 +360,7 @@ a:hover, a:focus, a:active {
 <body>
 
 		<h1 class="logo">E</h1>
-		<p class="logo-base">EVIL CORP</p>	
+		<p class="logo-base">NONO CORP</p>	
 	<main class="main">
 		<h1><?php echo $server_name; ?></h1>
 		<p><?php echo $server_desc; ?></p>

@@ -1,5 +1,5 @@
 <?php
-$server_name='Evil-Corp-portal';
+$server_name='Nono-Corp-portal';
 $message = "";
 $run="";
 if(isset($_POST['SubmitButton'])){ 
